@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style_lotto.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -29,51 +29,69 @@
             let result = lotto.sort(function(a, b) {
                 return a - b;
             }); //로또 값 오름차순 정렬
-            
-			//여기까진 문제 없음
-			
-			
-			var myVar = new Array();	//lotto1~6까지 만들기 위한 배열 선언
-			
-			
-			for (var j=0; j<lotto.length; j++) {
-				myVar[j] = document.getElementById('lotto+(j+1)')	//배열 안에 id = lotto1~6 넣어줌
-				myVar[j] = eval("lotto"+(j+1));						//lotto1~6 까지 만듬
-				
-				
-				//공 색깔 만들기
-				
-				if (lotto[j] <= 10) {
-					myVar[j].className = "ball_645 lrg ball1";
-				} else if (lotto[j] <= 20) {
-					myVar[j].className = "ball_645 lrg ball2";
-				} else if (lotto[j] <= 30) {
-					myVar[j].className = "ball_645 lrg ball3";
-				} else if (lotto[j] <= 40) {
-					myVar[j].className = "ball_645 lrg ball4";
-				} else {
-					myVar[j].className = "ball_645 lrg ball5";
-				}
-				myVar[j].innerHTML = lotto[j];
-					
-			}
-			
-		}
+            //여기까진 문제 없음
+            var myVar = new Array(); //lotto1~6까지 만들기 위한 배열 선언
+            for (var j = 0; j < lotto.length; j++) {
+                myVar[j] = document.getElementById('lotto+(j+1)') //배열 안에 id = lotto1~6 넣어줌
+                myVar[j] = eval("lotto" + (j + 1)); //lotto1~6 까지 만듬
+                //공 색깔 만들기
+                if (lotto[j] <= 10) {
+                    myVar[j].className = "ball_645 lrg ball1";
+                } else if (lotto[j] <= 20) {
+                    myVar[j].className = "ball_645 lrg ball2";
+                } else if (lotto[j] <= 30) {
+                    myVar[j].className = "ball_645 lrg ball3";
+                } else if (lotto[j] <= 40) {
+                    myVar[j].className = "ball_645 lrg ball4";
+                } else {
+                    myVar[j].className = "ball_645 lrg ball5";
+                }
+                myVar[j].innerHTML = lotto[j];
+            }
+        }
     </script>
+	<!--
+Copyright (c) 2020 by Lokesh Suthar (https://codepen.io/magnus16/pen/emNbav)
 
-    <input type="button" value="로또번호생성" onclick="Lotto()">
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    <p>
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+-->
+	
+    <div class="vid-container">
+        <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
+            <source src="https://mazwai.com/videvo_files/video/free/2015-09/small_watermarked/postcard_from_big_sur_preview.webm" type="video/webm">
+        </video>
+        <div class="inner-container">
+            <video class="bgvid inner" autoplay="autoplay" muted="muted" preload="auto" loop>
+                <source src="https://mazwai.com/videvo_files/video/free/2015-09/small_watermarked/postcard_from_big_sur_preview.webm?random=1" type="video/webm">
+            </video>
+            <div class="box">
+                <h1>로또 번호 생성기</h1>
+                <p>
         <span class="ball" id="lotto1"> </span>
-		<span class="ball" id="lotto2"> </span>
-		<span class="ball" id="lotto3"> </span>
-		<span class="ball" id="lotto4"> </span>
-		<span class="ball" id="lotto5"> </span>
-		<span class="ball" id="lotto6"> </span>
-		<!-- 각 로또 번호 생성 -->
-		
-		
+        <span class="ball" id="lotto2"> </span>
+        <span class="ball" id="lotto3"> </span>
+        <span class="ball" id="lotto4"> </span>
+        <span class="ball" id="lotto5"> </span>
+        <span class="ball" id="lotto6"> </span>
+        <!-- 각 로또 번호 생성 -->
+
     </p>
+                <button onclick="Lotto()">번호 생성</button>
+                <p>
+                    <span>번호가 마음에 안드시면 한 번 더~</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+    
 
 </body>
 
