@@ -1,0 +1,108 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="style_lotto.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+	<script type="text/javascript">
+		function Lotto() {
+			var lotto = new Array(6); // 6개의 배열이 lotto에 저장
+			var count = 2; //추출한 로또번호의 갯수
+			var overl = true; // 번호중복 여부 변수
+			var winNum = [7, 24, 29, 30, 34, 35]; //지난주 당첨번호
+				var mirrorNum = new Array(6);
+				for (var i = 0; i < winNum.length; i++) {
+					mirrorNum[i] = 46 - winNum[i];
+				}
+				console.log(mirrorNum);
+				var ranNum = parseInt(Math.random() * mirrorNum.length);
+				lotto[0] = mirrorNum[ranNum]; //거울 수 중 랜덤 번호 추출
+				//--거울수 넣기//
+				//이월수 확률적 넣기//
+				lotto[1] = 3;
+				//여기까지 이월수//
+			while (count < 6) { // 로또번호 6번 얻을 때까지 반복.
+				//거울수 넣기-->
+				
+				var x = document.getElementById("adu").value; //제외수 받아오기(빈칸으로 입력)
+				var Arr = x.split(","); //받아온 제외수 ','를 기준으로 나누기
+				var number = 0; //랜덤번호 가져오는 변수
+				number = parseInt(Math.random() * 45) + 1; // 1~45사이에 랜덤번호 추출
+				for (var i = 0; i < count; i++) { // 1부터 i까지 반복하여 중복확인
+					for (a = 0; a < Arr.length; a++) {
+						if (lotto[i] == number || Arr[a] == number) { // 중복된 번호가 아니면 넘어가기.
+							overl = false;
+						}
+					}
+				}
+				if (overl) { //중복 없을 시 count 1 증가
+					lotto[count] = number; //추출된 번호를 배열에 넣기
+					count++;
+				}
+				overl = true; //원래 true으로 돌아가기
+			}
+			let result = lotto.sort(function(a, b) {
+				return a - b;
+			}); //로또 값 오름차순 정렬
+			//여기까진 문제 없음
+			var myVar = new Array(); //lotto1~6까지 만들기 위한 배열 선언
+			for (var j = 0; j < lotto.length; j++) {
+				myVar[j] = document.getElementById('lotto+(j+1)') //배열 안에 id = lotto1~6 넣어줌
+				myVar[j] = eval("lotto" + (j + 1)); //lotto1~6 까지 만듬
+				//공 색깔 만들기
+				if (lotto[j] <= 10) {
+					myVar[j].className = "ball_645 lrg ball1";
+				} else if (lotto[j] <= 20) {
+					myVar[j].className = "ball_645 lrg ball2";
+				} else if (lotto[j] <= 30) {
+					myVar[j].className = "ball_645 lrg ball3";
+				} else if (lotto[j] <= 40) {
+					myVar[j].className = "ball_645 lrg ball4";
+				} else {
+					myVar[j].className = "ball_645 lrg ball5";
+				}
+				myVar[j].innerHTML = lotto[j];
+			}
+		}
+	</script>
+	<!--
+Copyright (c) 2020 by Lokesh Suthar (https://codepen.io/magnus16/pen/emNbav)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+-->
+
+	<div class="inner-container">
+
+		<div class="box" style="background-color:#FCDFF3;">
+			<h1>로또 번호 생성기</h1>
+			<textarea id="adu" placeholder="제외할 번호 입력"></textarea>
+
+			<p>
+				<span class="ball" id="lotto1"> </span>
+				<span class="ball" id="lotto2"> </span>
+				<span class="ball" id="lotto3"> </span>
+				<span class="ball" id="lotto4"> </span>
+				<span class="ball" id="lotto5"> </span>
+				<span class="ball" id="lotto6"> </span>
+				<!-- 각 로또 번호 생성 -->
+
+			</p>
+			<button onclick="Lotto()">번호 생성</button>
+			<p>
+				<span>번호가 마음에 안드시면 한 번 더~</span>
+			</p>
+		</div>
+	</div>
+
+</body>
+
+</html>
