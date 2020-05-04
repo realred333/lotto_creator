@@ -3,17 +3,6 @@
 <head>
 	<link rel="stylesheet" href="style_lotto.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--
-Copyright (c) 2020 by Lokesh Suthar (https://codepen.io/magnus16/pen/emNbav)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
--->
 </head>
 
 <body>
@@ -21,22 +10,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<script type="text/javascript">
 		function Lotto() {
 			var lotto = new Array(6); // 6개의 배열이 lotto에 저장
-			var count = 2; //추출한 로또번호의 갯수
+			var count = 0; //추출한 로또번호의 갯수
 			var overl = true; // 번호중복 여부 변수
-			var winNum = [7, 24, 29, 30, 34, 35]; //지난주 당첨번호
-			var mirrorNum = new Array(6);
-			for (var i = 0; i < winNum.length; i++) {
-				mirrorNum[i] = 46 - winNum[i];
-			}
-			console.log(winNum);
-			console.log(mirrorNum);
-			var ranNum = parseInt(Math.random() * mirrorNum.length);
-			var ranNum2 = parseInt(Math.random() * winNum.length);
-			lotto[0] = mirrorNum[ranNum]; //거울 수 중 랜덤 번호 추출
-			//--거울수 넣기//
-			//이월수 확률적 넣기//
-			lotto[1] = winNum[ranNum2]; //이월 수 중 랜덤 번호 추출
-			//여기까지 이월수//
 			while (count < 6) { // 로또번호 6번 얻을 때까지 반복.
 				var x = document.getElementById("adu").value; //제외수 받아오기(빈칸으로 입력)
 				var Arr = x.split(","); //받아온 제외수 ','를 기준으로 나누기
@@ -79,6 +54,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			}
 		}
 	</script>
+	<!--
+Copyright (c) 2020 by Lokesh Suthar (https://codepen.io/magnus16/pen/emNbav)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+-->
 
 	<div class="inner-container">
 
