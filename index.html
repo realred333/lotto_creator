@@ -49,6 +49,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							overl = false;
 						}
 					}
+					for(a=2; a < count; a++) {	// 거울수 한개씩만 나옵시다.
+						if(lotto[0] == number) {
+							overl = false;
+						}
+						if(lotto[1] == number) {	// 이월수도 한개씩만 나오게...잘 안되네..
+							overl = false;
+						}
+					}
+					
 				}
 				if (overl) { //중복 없을 시 count 1 증가
 					lotto[count] = number; //추출된 번호를 배열에 넣기
