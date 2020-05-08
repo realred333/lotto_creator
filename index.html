@@ -6,14 +6,9 @@
 	<title>Lotto Prediction Program</title>
 	<!--
 Copyright (c) 2020 by Lokesh Suthar (https://codepen.io/magnus16/pen/emNbav)
-
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
 -->
 </head>
 
@@ -45,20 +40,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				number = parseInt(Math.random() * 45) + 1; // 1~45사이에 랜덤번호 추출
 				for (var i = 0; i < count; i++) { // 1부터 i까지 반복하여 중복확인
 					for (a = 0; a < Arr.length; a++) {
-						if (lotto[i] == number || Arr[a] == number) { // 중복된 번호가 아니면 넘어가기.
-							overl = false;
-						}
-					}
-					for(a=2; a < count; a++) {	// 거울수 한개씩만 나옵시다.
-						if(lotto[0] == number) {
-							overl = false;
-						}
-						if(lotto[1] == number) {	// 이월수도 한개씩만 나오게...잘 안되네..
+						if (lotto[i] == number || Arr[a] == number || winNum[i] == number || mirrorNum[i] == number) { // 중복된 번호가 아니면 넘어가기.
 							overl = false;
 						}
 					}
 					
 				}
+				
 				if (overl) { //중복 없을 시 count 1 증가
 					lotto[count] = number; //추출된 번호를 배열에 넣기
 					count++;
