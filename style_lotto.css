@@ -8,10 +8,10 @@
 	font-weight: 500; /* text-shadow: 0px 0px 2px rgba(0, 0, 0, 1); */
 }
 .ball_645.lrg {
-	width: 60px;
-	height: 60px;
-	line-height: 56px;
-	font-size: 28px;
+	width: 50px;
+	height: 50px;
+	line-height: 46px;
+	font-size: 24px;
 }
 .ball_645.sml {
 	width: 24px;
@@ -52,6 +52,8 @@ table tr td .ball_645.sml {
 body {
 	padding: 0;
 	margin: 0;
+	font-family: sans-serif;
+	background: linear-gradient(#141e30, #243b55);
 }
 .bgvid {
 	position: absolute;
@@ -78,19 +80,24 @@ body {
 }
 .box {
 	position: absolute;
-	height: 100%;
-	width: 100%;
-	/*font-family: Helvetica; */
-
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	padding: 35px;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+	border-radius: 10px;
 	color: #fff;
-	background: rgba(0, 0, 0, 0.13);
-	padding: 30px 0px;
 }
 .box h1 {
 	text-align: center;
 	margin: 30px 0;
-	font-size: 30px;
+	font-size: 27px;
 }
+
+/*
 .box input {
 	display: block;
 	width: 300px;
@@ -137,4 +144,145 @@ body {
 .box p span {
 	cursor: pointer;
 	color: #666;
+}
+*/
+
+.box .user-box {
+	position: relative;
+}
+
+.box .user-box input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background: transparent;
+}
+.box .user-box label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.box .user-box input:focus ~ label,
+.box .user-box input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #03e9f4;
+	font-size: 12px;
+}
+/* 버튼 애니메이션 */
+.box a {
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	color: #03e9f4;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 0.5s;
+	margin-top: 30px;
+	letter-spacing: 4px;
+}
+
+
+.box a:hover {
+	background: #03e9f4;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+}
+
+.box a span {
+	position: absolute;
+	display: block;
+}
+
+.box a span:nth-child(1) {
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #03e9f4);
+	animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+	0% {
+		left: -100%;
+	}
+	50%,
+	100% {
+		left: 100%;
+	}
+}
+
+.box a span:nth-child(2) {
+	top: -100%;
+	right: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg, transparent, #03e9f4);
+	animation: btn-anim2 1s linear infinite;
+	animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+	0% {
+		top: -100%;
+	}
+	50%,
+	100% {
+		top: 100%;
+	}
+}
+
+.box a span:nth-child(3) {
+	bottom: 0;
+	right: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(270deg, transparent, #03e9f4);
+	animation: btn-anim3 1s linear infinite;
+	animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+	0% {
+		right: -100%;
+	}
+	50%,
+	100% {
+		right: 100%;
+	}
+}
+
+.box a span:nth-child(4) {
+	bottom: -100%;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(360deg, transparent, #03e9f4);
+	animation: btn-anim4 1s linear infinite;
+	animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+	0% {
+		bottom: -100%;
+	}
+	50%,
+	100% {
+		bottom: 100%;
+	}
 }

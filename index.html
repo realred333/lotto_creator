@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="style_lotto.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<LINK REL="SHORTCUT ICON" HREF="resources/images/favicon.ico" />
-	<title>Lotto Prediction Program</title>
+	<title>Lotto Number Generator</title>
 	<!--
 Copyright (c) 2020 by Lokesh Suthar (https://codepen.io/magnus16/pen/emNbav)
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -20,7 +20,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			var lotto = new Array(6); // 6개의 배열이 lotto에 저장
 			var count = 2; //추출한 로또번호의 갯수
 			var overl = true; // 번호중복 여부 변수
-			var winNum = [7, 24, 29, 30, 34, 35]; //지난주 당첨번호
+			var winNum = [1, 11, 17, 27, 35, 39]; //지난주 당첨번호
 			var mirrorNum = new Array(6);
 			for (var i = 0; i < winNum.length; i++) {
 				mirrorNum[i] = 46 - winNum[i];
@@ -45,9 +45,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							overl = false;
 						}
 					}
-					
 				}
-				
 				if (overl) { //중복 없을 시 count 1 증가
 					lotto[count] = number; //추출된 번호를 배열에 넣기
 					count++;
@@ -81,10 +79,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<div class="inner-container">
 
-		<div class="box" style="background-color:#FCDFF3;">
-			<h1>로또 번호 생성기</h1>
-			<textarea id="adu" placeholder="제외할 번호 입력"></textarea>
+		<div class="box" style="background: rgba(0,0,0,.5);">
+			<h1>Lotto Number Generator</h1>
+			<!-- <textarea id="adu" placeholder="제외할 번호 입력"></textarea> -->
+			<div class="user-box">
 
+				<input type="text" name="" id="adu" required="">
+				<label>제외할 번호 입력</label>
+			</div>
 			<p>
 				<span class="ball" id="lotto1"> </span>
 				<span class="ball" id="lotto2"> </span>
@@ -95,7 +97,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<!-- 각 로또 번호 생성 -->
 
 			</p>
-			<button onclick="Lotto()">번호 생성</button>
+			<!--<button onclick="Lotto()">번호 생성</button> -->
+			<a href="#" onclick="Lotto()">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				번호 생성
+			</a>
 			<p>
 				<span>번호가 마음에 안드시면 한 번 더~</span>
 			</p>
