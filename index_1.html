@@ -36,10 +36,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			//여기까지 이월수//
 			while (count < 6) { // 로또번호 6번 얻을 때까지 반복.
 				var x = document.getElementById("adu").value; //제외수 받아오기(빈칸으로 입력)
-				var Arr = x.split(" "); //받아온 제외수 ','를 기준으로 나누기
-				for (let b = 0; b<6;b++) {	//제외수 지정 추가(지난주 당첨수 +1)
-					Arr.push(winNum[b]+1);	
-				}
+				var Arr = x.split(","); //받아온 제외수 ','를 기준으로 나누기
 				var number = 0; //랜덤번호 가져오는 변수
 				number = parseInt(Math.random() * 45) + 1; // 1~45사이에 랜덤번호 추출
 				for (var i = 0; i < count; i++) { // 1부터 i까지 반복하여 중복확인
@@ -55,7 +52,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				}
 				overl = true; //원래 true으로 돌아가기
 			}
-			console.log(Arr);
 			let result = lotto.sort(function(a, b) {
 				return a - b;
 			}); //로또 값 오름차순 정렬
@@ -89,7 +85,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<div class="user-box">
 
 				<input type="text" name="" id="adu" required="">
-				<label>제외할 번호 입력(띄어쓰기로 구분)</label>
+				<label>제외할 번호 입력</label>
 			</div>
 			<p>
 				<span class="ball" id="lotto1"> </span>
