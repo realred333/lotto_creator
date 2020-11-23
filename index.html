@@ -1,30 +1,24 @@
 <html>
-	<body>
+	<head>
 		<script type="text/javascript">
-			function ResizeFrame(name) {
-				// IFRAME 내부의 body 개체
-				var fBody = document.frames(name).document.body;
-				// IFRAME 개체
-				var fName = document.all(name);
-
-				// IFRAME 내부의 body개체의 넓이를 계산하여 IFRAME의 넓이를 설정해 준다.
-				fName.style.width = fBody.scrollWidth + (fBody.offsetWidth - fBody.clientWidth);
-				// IFRAME 내부의 body개체의 높이를 계산하여 IFRAME의 높이를 설정해 준다.
-				fName.style.height = fBody.scrollHeight + (fBody.offsetHeight - fBody.clientHeight);
-
-				// 만약 IFRAME의 크기 설정에 실패 하였다면 기본크기로 설정한다.
-				if (Frame_name.style.height == '0px' || Frame_name.style.width == '0px') {
-					fName.style.width = '700px'; //기본 iframe 너비
-					fName.style.height = '300px'; //기본 iframe 높이
-				}
+			<!--예제
+			function iframeSize() {
+			var obj = document.getElementById('ifSize');
+			var ifHeight = obj.contentWindow.document.body.scrollHeight;
+			var ifWidth = obj.contentWindow.document.body.scrollWidth;
+			    obj.width = ifWidth;
+			    obj.height = ifHeight;
 			}
+			window.onload = iframeSize;
+			//스크립트 끝-->
 		</script>
-
+	</head>
+	<body>
 		<iframe
-			name="NeBoard"
+			id="ifSize"
 			src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQVA7qh93fiZD86nzr6HiBGXOPXSFqn724TlxyqFff8Ikbmg9uBeuQl0ybq-W7kpwA02p1-SjJSWKeT/pubhtml?widget=true&amp;headers=false"
-			scrolling="No"
-			onLoad="ResizeFrame('NeBoard');"
+			frameborder="0"
+			scrolling="no"
 		></iframe>
 	</body>
 </html>
