@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<script type="text/javascript">
-			
+			<!--예제
 			function iframeSize() {
 			var obj = document.getElementById('ifSize');
 			var ifHeight = obj.contentWindow.document.body.scrollHeight;
@@ -10,18 +10,34 @@
 			    obj.height = ifHeight;
 			}
 			window.onload = iframeSize;
-			
+			//스크립트 끝-->
 		</script>
+		<style>
+			.video-container {
+				position: relative;
+				padding-bottom: 56.25%;
+				padding-top: 30px;
+				height: 0;
+				overflow: hidden;
+			}
+			.video-container iframe,
+			.video-container object,
+			.video-container embed {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="Video Container">
-		
+		<div class="video-container">
 			<iframe
-			id="ifSize"
-			src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQVA7qh93fiZD86nzr6HiBGXOPXSFqn724TlxyqFff8Ikbmg9uBeuQl0ybq-W7kpwA02p1-SjJSWKeT/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
-			frameborder="0"
-			scrolling="no"
-		></iframe>
+				id="ifSize"
+				src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQVA7qh93fiZD86nzr6HiBGXOPXSFqn724TlxyqFff8Ikbmg9uBeuQl0ybq-W7kpwA02p1-SjJSWKeT/pubhtml?widget=true&amp;headers=false"
+				frameborder="0"
+			></iframe>
 		</div>
 	</body>
 </html>
